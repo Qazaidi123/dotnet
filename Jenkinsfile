@@ -5,6 +5,7 @@ pipeline {
     
     IMAGE_NAME = "qazaidi123/qazrepo"
     IMAGE_TAG = "${BUILD_NUMBER}"
+    CONTAINER_NAME = " dotnetcon"
     DOCKER_CREDS = credentials('dockerhub-creds')
   }
   stages {
@@ -33,7 +34,7 @@ pipeline {
     stage (" Run container") {
       steps {
         
-        sh " docker run -d --name dotnetcon2 -p 5000:5000 ${IMAGE_NAME}:${IMAGE:TAG} "
+        sh " docker run -d --name ${CONTAINER_NAME} -p 5000:5000 ${IMAGE_NAME}:${IMAGE:TAG} "
       
         
         }
