@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage("clone git repo") {
       steps {
-       git url:"https://github.com/Qazaidi123/kubernetes.git" ,credentialsId: "git-creds", branch:"main"
+       git url:"https://github.com/Qazaidi123/dotnet.git" ,credentialsId: "git-creds", branch:"main"
       }
     }
 
@@ -30,10 +30,10 @@ pipeline {
         
       }
     }
-    stage ("EKS cluster deploy") {
+    stage (" Run container") {
       steps {
-        withAWS(credentials: 'AWS-CREDENTIALS') {
-        sh " aws eks --region ap-south-1 update-kubeconfig --name ekscluster "
+        
+        sh " docker run -d --name dotnetcon2  "
         sh " kubectl get pods "
         sh " kubectl apply -f k8s/ "
 
