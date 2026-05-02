@@ -19,6 +19,10 @@ WORKDIR /app
 #Copy published output from build stage
 COPY --from=build-env /app/out ./
 
+# Expose at port 5000
+ENV ASPNETCORE_URLS=http://+:5000
+EXPOSE 5000
+
 #Run the application
-ENTRYPOINT ["dotnet","Myapp.dll]
+ENTRYPOINT ["dotnet","Netapp.dll]
 
