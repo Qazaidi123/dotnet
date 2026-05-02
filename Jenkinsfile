@@ -33,7 +33,7 @@ pipeline {
     stage (" Run container") {
       steps {
         
-        sh " docker run -d --name dotnetcon2 -p 5000:5000 ${IMAGE_NAME}:${IMAGE:TAG}  "
+        sh " docker run -d --name dotnetcon2 -p 5000:5000 ${IMAGE_NAME}:${IMAGE:TAG} "
       
         
         }
