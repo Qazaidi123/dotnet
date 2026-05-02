@@ -33,15 +33,8 @@ pipeline {
     stage (" Run container") {
       steps {
         
-        sh " docker run -d --name dotnetcon2  "
-        sh " kubectl get pods "
-        sh " kubectl apply -f k8s/ "
-
-        sh "kubectl set image deployment/frontend-deployment frontend-container=$IMAGE_NAME:$IMAGE_TAG"
-    
-
-    
-    
+        sh " docker run -d --name dotnetcon2 -p 5000:5000 ${IMAGE_NAME}:${IMAGE:TAG}  "
+      
         
         }
       }
