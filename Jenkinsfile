@@ -42,35 +42,3 @@ pipeline {
   }
 
 
-post {
-
-        success {
-            archiveArtifacts artifacts: '*.tar', fingerprint: true
-
-            emailext(
-                subject: "SUCCESS",
-                body: " success",
-                mimeType: 'text/html',
-                to: 'zaidi.qumar@gmail.com'
-            )
-        }
-
-        failure {
-            emailext(
-                subject: "FAILED",
-                body: "llll",
-                mimeType: 'text/html',
-                to: 'zaidi.qumar@gmail.com'
-            )
-        }
-
-        unstable {
-            emailext(
-                subject: "FAILED",
-                body: "Build Failed",
-                mimeType: 'text/html',
-                to: 'zaidi.qumar@gmail.com'
-            )
-    }
-}
-}
