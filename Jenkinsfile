@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     
-    IMAGE_NAME = "qazaidi123/qazrepo2"
+    IMAGE_NAME = "qazaidi123/qazrepo"
     IMAGE_TAG = "${BUILD_NUMBER}"
     DOCKER_CREDS = credentials('dockerhub-creds')
   }
